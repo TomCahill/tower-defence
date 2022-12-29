@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TowerDefence</title>
+		<link rel="stylesheet" type="text/css" href="./css/layout.css">
+		<link rel="stylesheet" type="text/css" href="./css/typicons/typicons.min.css">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	</head>
+	<body>
+		<div class="gameUIOverlay">
+			<div class="UITopbar clearfix">
+				<ul class="UITopbarStatusList">
+					<li id="TopbarStatusGold">Gold: <span>0</span></li>
+					<li id="TopbarStatusKills">Kill: <span>0</span></li>
+					<li id="TopbarStatusLife">Life: <span>0</span></li>
+					<li id="TopbarStatusCreeps">Creeps: <span>0</span></li>
+				</ul>
+				<div class="debugBtnGroup">
+					<button id="btnShowDebug" class="circle"><i class="typcn typcn-spanner-outline"></i></button>
+					<button id="btnShowDebug" class="circle"><i class="typcn typcn-warning-outline"></i></button>
+					<button id="btnSpawn" class="circle"><i class="typcn typcn-media-pause-outline"></i></button>
+					<button id="btnMenu" class="circle"><i class="typcn typcn-cog-outline"></i></button>
+				</div>
+			</div>
+			<div class="UIMenu MenuBuild">
+				<div class="UIMenuTitle">Towers</div>
+			</div>
+			<!-- <div class="UIBottomBar clearfix">
+				<div class="UIBottomBarInfo">
+					<div class="InfoGeneraasl clearfix">
+						<div class="GeneralImage"></div>
+						<div class="GeneralDesc">
+							<div id="BottomBarEntityName" class="DescTitle">Tower Name</div>
+						</div>
+					</div>
+					<ul class="InfoExtra">d 
+						<li id="BottomBarEntityDamage">Damage: 25</li>
+						<li id="BottomBarEntitySpeed">Speed: 25</li>
+						<li id="BottomBarEntityRange">Range: 25</li>
+						<li id="BottomBarEntityKills">Kills: 0</li>
+						<li id="BottomBarEntityDips">Dips: 0</li>
+						<li id="BottomBarEntityCost">Sell: 25</li>
+					</ul>
+				</div>
+				<div class="UIBottomBarMenu">
+					<ul>
+						<li>
+							<button class="circle">I</button>
+						</li>
+						<li>
+							<button class="circle">T</button>
+						</li>
+					</ul>
+				</div>
+			</div> -->
+		</div>
+		<canvas id="gameFrame">Your browser doesn't support canvas</canvas>
+		<script type="text/javascript" src="./js/jquery-1.12.0.min.js"></script>
+		<!-- >> TEMP >> -->
+		<script type="text/javascript" src="./js/TD.js"></script>
+		<!-- Mains -->
+		<script type="text/javascript" src="./js/TD_Inputs.js"></script>
+		<script type="text/javascript" src="./js/TD_Camera.js"></script>
+		<script type="text/javascript" src="./js/TD_Map.js"></script>
+		<script type="text/javascript" src="./js/TD_Pathing.js"></script>
+		<script type="text/javascript" src="./js/TD_Sprite.js"></script>
+		<script type="text/javascript" src="./js/TD_Score.js"></script>
+		<!-- Entities -->
+		<script type="text/javascript" src="./js/TD_EntityManager.js"></script>
+		<script type="text/javascript" src="./js/TD_Entity.js"></script>
+		<!-- Shots -->
+		<script type="text/javascript" src="./js/TD_EntityShot.js"></script>
+		<!-- Creeps -->
+		<script type="text/javascript" src="./js/TD_EntityCreep.js"></script>
+		<script type="text/javascript" src="./js/TD_EntityCreepGrunt.js"></script>
+		<!-- Tower -->
+		<script type="text/javascript" src="./js/TD_EntityTower.js"></script>
+		<script type="text/javascript" src="./js/TD_EntityTowerBasic.js"></script>
+		<!-- << TEMP << -->
+		<script type="text/javascript">
+			var TDGame = false;
+			jQuery(function($){
+				TDGame = new TowerDefence('gameFrame');
+
+				// DEBUG
+				$('#btnSpawn').click(function(){
+					TDGame.spawnShit();
+				});
+				$('#btnspawnShotOnFirstCreep').click(function(){
+					TDGame.spawnShotOnFirstCreep();
+				});
+				$('#btnDebugGridNumbers').click(function(){
+					TDGame.toggleGridNumbers();
+				});
+
+			});
+		</script>
+	</body>
+</html>
